@@ -1,0 +1,24 @@
+<div class="content-container">
+    <div class="content-border">
+    <h2>Todo List Application</h2>
+    <ul class="todo-list">
+      <li *ngFor="let todo of todos; let i = index" class="todo-item">
+        <div *ngIf="!todo.editing">
+          {{ todo.text }}
+          <button class="remove-button" (click)="removeTodo(i)">Remove</button>
+          <button class="edit-button" (click)="editTodo(todo)">Edit</button>
+        </div>
+        <div *ngIf="todo.editing">
+          <input [(ngModel)]="todo.text" class="edit-input" />
+          <button class="save-button" (click)="saveEdit(todo)">Save</button>
+          <button class="cancel-button" (click)="cancelEdit(todo)">Cancel</button>
+        </div>
+      </li>
+    </ul>
+  
+    <div class="input-container">
+      <input [(ngModel)]="newTodo" class="todo-input" placeholder="Add a new todo" />
+      <button class="add-button" (click)="addTodo()">Add</button>
+    </div>
+  </div>
+ </div>>
