@@ -1,20 +1,16 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-todo-list',
   templateUrl: './todo-list.component.html',
   styleUrls: ['./todo-list.component.css']
 })
-export class TodoListComponent implements OnInit {
+export class TodoListComponent {
   todos: Todo[] = [];
   newTodo: string = '';
 
   selectedTodo: Todo | null = null; // For editing
 
-  constructor() { }
-
-  ngOnInit(): void {
-  }
   addTodo() {
     if (this.newTodo.trim() !== '') {
       this.todos.push({ text: this.newTodo, editing: false });
@@ -46,4 +42,3 @@ interface Todo {
   text: string;
   editing: boolean;
 }
-
